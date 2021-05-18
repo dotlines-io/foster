@@ -9,7 +9,7 @@
 
 ---
 
-This composer package can be used for OnDemand payment integration with [Foster](https://fosterpayments.com.bd/) Payments Platform.
+This composer package can be used for payment integration with [Foster](https://fosterpayments.com.bd/) Payments Platform.
 For the credentials, please contact with info@fosterpayments.com.bd or call 8801730372941
 
 ## Installation
