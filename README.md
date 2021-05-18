@@ -8,7 +8,7 @@
 
 ---
 
-This composer package can be used for OnDemand payment integration with [Foster](https://fosterpayments.com.bd/) Platform.
+This composer package can be used for OnDemand payment integration with [Foster](https://fosterpayments.com.bd/) Payments Platform.
 For the credentials, please contact with info@fosterpayments.com.bd or call 8801730372941
 
 ## Installation
@@ -29,12 +29,12 @@ composer require dotlines-io/foster
  */
 
 $charge_request_url = "<Server URL>/fosterpayments/paymentrequest.php";
-$mcnt_AccessCode = '';          //Contact Support/Admin for this integration credentials
-$mcnt_ShortName = "";          // Contact Support/Admin for this integration credentials
-$mcnt_ShopId = '';             //Contact Support/Admin for theses integration credentials
-$secretkey = "";               //Contact Support/Admin for theses integration credentials 
+$mcnt_AccessCode = '';          // Contact Foster Payments for this credential
+$mcnt_ShortName = "";           // Contact Foster Payments for this credential
+$mcnt_ShopId = '';              // Contact Foster Payments for this credential
+$secretkey = "";                // Contact Foster Payments for this credential
 
-$mcnt_TxnNo = '';               //Mandatory | Unique | Max: 32 Char 
+$mcnt_TxnNo = '';               // Mandatory | Unique | Max: 32 Char 
 $mcnt_Amount = 100;             // Mandatory | The total amount payable | Decimal
 $mcnt_Currency = 'BDT';         // Mandatory | 3 Letter currency code  
 $cust_InvoiceTo = '';           // Mandatory | Customer ID
@@ -59,9 +59,8 @@ $merchentip = '';               // Mandatory | Domain IP
 
 $chargeRequest = \Dotlines\Foster\ChargeRequest::getInstance($charge_request_url, $mcnt_AccessCode, $mcnt_ShortName, $mcnt_ShopId, $secretkey,
     $mcnt_TxnNo, $mcnt_Amount, $mcnt_Currency, $cust_InvoiceTo, $cust_CustomerServiceName, $cust_CustomerName, $cust_CustomerEmail, $cust_CustomerAddress,
-    $cust_CustomerContact, $cust_CustomerCity, $cust_CustomerState, $cust_CustomerPostcode, $cust_CustomerCountry, $cust_Billingaddress, $cust_ShippingAddress, $cust_orderitems,
-    $success_url, $cancel_url, $fail_url, $merchentdomainname, $merchentip
-);
+    $cust_CustomerContact, $cust_CustomerCity, $cust_CustomerState, $cust_CustomerPostcode, $cust_CustomerCountry, $cust_Billingaddress, $cust_ShippingAddress,
+    $cust_orderitems, $success_url, $cancel_url, $fail_url, $merchentdomainname, $merchentip);
 echo json_encode($chargeRequest->send()) . '<br/>';
 
 /**
@@ -87,8 +86,8 @@ echo json_encode($chargeRequest->send()) . '<br/>';
  */
 
 $status_url = "<Server URL>/fosterpayments/TransactionStatus/txstatus.php";
-$mcnt_TxnNo = '';               // Transaction No provided during payment request initiation
-$secretkey = '';                // Secret key provided by admin 
+$mcnt_TxnNo = '';       // Transaction No provided during payment request initiation
+$secretkey = '';        // Secret key provided by admin 
 
 $statusRequest = \Dotlines\Foster\StatusRequest::getInstance($status_url, $mcnt_TxnNo, $secretkey);
 echo json_encode($statusRequest->send()) . '<br/>';
