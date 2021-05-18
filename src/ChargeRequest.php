@@ -13,7 +13,7 @@ class ChargeRequest extends Request
     private string $secretkey;
     private int $mcnt_ShopId;
     private string $mcnt_TxnNo;
-    private string $mcnt_Amount;
+    private float $mcnt_Amount;
     private string $mcnt_Currency;
     private string $cust_InvoiceTo;
     private string $cust_CustomerServiceName;
@@ -41,7 +41,7 @@ class ChargeRequest extends Request
      * @param int $mcnt_ShopId
      * @param string $secretkey
      * @param string $mcnt_TxnNo
-     * @param string $mcnt_Amount
+     * @param float $mcnt_Amount
      * @param string $mcnt_Currency
      * @param string $cust_InvoiceTo
      * @param string $cust_CustomerServiceName
@@ -70,7 +70,7 @@ class ChargeRequest extends Request
         int $mcnt_ShopId,
         string $secretkey,
         string $mcnt_TxnNo,
-        string $mcnt_Amount,
+        float $mcnt_Amount,
         string $mcnt_Currency,
         string $cust_InvoiceTo,
         string $cust_CustomerServiceName,
@@ -128,7 +128,7 @@ class ChargeRequest extends Request
         int $mcnt_ShopId,
         string $secretkey,
         string $mcnt_TxnNo,
-        string $mcnt_Amount,
+        float $mcnt_Amount,
         string $mcnt_Currency,
         string $cust_InvoiceTo,
         string $cust_CustomerServiceName,

@@ -89,4 +89,24 @@ class StatusRequestTest extends TestCase
         self::assertNotEmpty($statusRequestResponse[0]['MerchantTxnNo']);
         self::assertNotEmpty($statusRequestResponse[0]['message']);
     }
+
+    /**
+     * @test
+     * @throws JsonException
+     */
+    final public function it_fails_with_invalid_trxno(): void
+    {
+        $this->mcnt_TxnNo .= random_int(1111111111, 9999999999) . '_kalage';
+        $statusRequest = StatusRequest::getInstance($this->status_request_url, $this->mcnt_TxnNo, $this->secretkey);
+        $statusRequestResponse = $statusRequest->send();
+        self::assertNotEmpty($statusRequestResponse);
+
+        self::assertArrayHasKey('Status', $statusRequestResponse[0]);
+        self::assertArrayHasKey('MerchantTxnNo', $statusRequestResponse[0]);
+        self::assertArrayHasKey('message', $statusRequestResponse[0]);
+
+        self::assertTrue($statusRequestResponse[0]['Status'] >= 400);
+        self::assertEmpty($statusRequestResponse[0]['fosterid']);
+        self::assertEmpty($statusRequestResponse[0]['TxnResponse']);
+    }
 }
