@@ -28,11 +28,11 @@ composer require dotlines-io/foster
  * ******************************************************
  */
 
-$charge_request_url = "<Server URL>/fosterpayments/paymentrequest.php";
-$mcnt_AccessCode = '';          // Contact Foster Payments for this credential
-$mcnt_ShortName = "";           // Contact Foster Payments for this credential
-$mcnt_ShopId = '';              // Contact Foster Payments for this credential
-$secretkey = "";                // Contact Foster Payments for this credential
+$charge_request_url = "<SERVER_URL>/fosterpayments/paymentrequest.php"; // Contact Foster Payments for it
+$mcnt_AccessCode = '';          // Contact Foster Payments for it
+$mcnt_ShortName = "";           // Contact Foster Payments for it
+$mcnt_ShopId = '';              // Contact Foster Payments for it
+$secretkey = "";                // Contact Foster Payments for it
 
 $mcnt_TxnNo = '';               // Mandatory | Unique | Max: 32 Char 
 $mcnt_Amount = 100;             // Mandatory | The total amount payable | Decimal
@@ -67,9 +67,9 @@ echo json_encode($chargeRequest->send()) . '<br/>';
  * Success Charge Request Response looks like below.
  * You must redirect the user to the "url" for payment.
  * {
- * "status": "200",
- * "message": "Your Request Successfully received",
- * "data": {
+ *  "status": "200",
+ *  "message": "Your Request Successfully received",
+ *  "data": {
  *      "payment_id": "Testdc400a5.49862879-93218-nYaHX",
  *      "redirect_url": "https://demo.fosterpayments.com.bd/short/redirect.php",
  *      "merchant_ShopId": "6"
@@ -85,9 +85,9 @@ echo json_encode($chargeRequest->send()) . '<br/>';
  * ******************************************************
  */
 
-$status_url = "<Server URL>/fosterpayments/TransactionStatus/txstatus.php";
-$mcnt_TxnNo = '';       // Transaction No provided during payment request initiation
-$secretkey = '';        // Secret key provided by admin 
+$status_url = "<SERVER_URL>/fosterpayments/TransactionStatus/txstatus.php";
+$mcnt_TxnNo = '';   // Transaction No provided during payment request initiation
+$secretkey = '';    // Secret key provided by admin 
 
 $statusRequest = \Dotlines\Foster\StatusRequest::getInstance($status_url, $mcnt_TxnNo, $secretkey);
 echo json_encode($statusRequest->send()) . '<br/>';
