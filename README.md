@@ -65,7 +65,7 @@ echo json_encode($chargeRequest->send()) . '<br/>';
 
 /**
  * Success Charge Request Response looks like below.
- * You must redirect the user to the "url" for payment.
+ * You must store "payment_id" and redirect the user to the "redirect_url" for payment.
  * {
  *  "status": "200",
  *  "message": "Your Request Successfully received",
