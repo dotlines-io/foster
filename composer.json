@@ -1,6 +1,6 @@
 {
     "name": "dotlines-io/foster",
-    "description": "This package can be used for OnDemand Payment integration with Ghoori Platform.",
+    "description": "This package can be used for Payment Integration with Foster Payments Platform.",
     "keywords": [
         "dotlines",
         "dotlines-io",
