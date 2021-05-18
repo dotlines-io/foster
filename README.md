@@ -5,10 +5,11 @@
 [![Psalm](https://github.com/dotlines-io/foster/actions/workflows/psalm.yml/badge.svg)](https://github.com/dotlines-io/foster/actions/workflows/psalm.yml)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/dotlines-io/foster/Check%20&%20fix%20styling?label=code%20style)](https://github.com/dotlines-io/foster/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/dotlines-io/foster.svg?style=flat-square)](https://packagist.org/packages/dotlines-io/foster)
+[![Total Downloads](https://badgen.net/packagist/php/dotlines-io/foster)](https://packagist.org/packages/dotlines-io/foster)
 
 ---
 
-This composer package can be used for OnDemand payment integration with [Foster](https://fosterpayments.com.bd/) Payments Platform.
+This composer package can be used for payment integration with [Foster](https://fosterpayments.com.bd/) Payments Platform.
 For the credentials, please contact with info@fosterpayments.com.bd or call 8801730372941
 
 ## Installation
