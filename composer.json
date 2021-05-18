@@ -10,6 +10,11 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Rahat",
+            "email": "rahat@ssd-tech.io",
+            "role": "Developer"
+        },
+        {
             "name": "TareqMahbub",
             "email": "tareqmahbub@ssd-tech.io",
             "role": "Developer"
