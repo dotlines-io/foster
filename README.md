@@ -119,6 +119,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Credits
 
+- [Md. Abdullah Bin Amin (shovo)](https://github.com/shovoneloy)
 - [Rahat Mahmud](https://github.com/peash1068)
 - [TareqMahbub](https://github.com/TareqMahbub)
 
