@@ -1,4 +1,4 @@
-# Foster Package
+# Foster Payment Integration Package
 
 [![Latest Version on Packagist](https://badgen.net/github/release/dotlines-io/foster)](https://packagist.org/packages/dotlines-io/foster)
 [![Tests](https://github.com/dotlines-io/foster/actions/workflows/run-tests.yml/badge.svg)](https://github.com/dotlines-io/foster/actions/workflows/run-tests.yml)
