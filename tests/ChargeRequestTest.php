@@ -98,15 +98,15 @@ class ChargeRequestTest extends TestCase
         self::assertArrayHasKey('status', $response);
         self::assertArrayHasKey('message', $response);
         self::assertArrayHasKey('data', $response);
-        self::assertArrayHasKey('payment_id', $response['data']);
-        self::assertArrayHasKey('redirect_url', $response['data']);
+        self::assertArrayHasKey('payment_id', (array)$response['data']);
+        self::assertArrayHasKey('redirect_url', (array)$response['data']);
 
 
         self::assertNotEmpty($response['status']);
         self::assertNotEmpty($response['message']);
         self::assertNotEmpty($response['data']);
-        self::assertNotEmpty($response['data']['payment_id']);
-        self::assertNotEmpty($response['data']['redirect_url']);
+        self::assertNotEmpty(((array)$response['data'])['payment_id']);
+        self::assertNotEmpty(((array)$response['data'])['redirect_url']);
     }
 
     /**

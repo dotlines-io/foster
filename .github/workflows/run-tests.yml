@@ -36,6 +36,7 @@ jobs:
       - name: Execute tests
         run: vendor/bin/phpunit
         env:
+          SERVER_URL: ${{ secrets.SERVER_URL }}
           MCNT_ACCESSCODE: ${{ secrets.MCNT_ACCESSCODE }}
           MCNT_SHOPID: ${{ secrets.MCNT_SHOPID }}
           MCNT_SHORTNAME: ${{ secrets.MCNT_SHORTNAME }}

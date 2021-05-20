@@ -1,5 +1,6 @@
-<?php /** @noinspection GlobalVariableUsageInspection */
+<?php
 
+/** @noinspection GlobalVariableUsageInspection */
 /** @noinspection PhpComposerExtensionStubsInspection */
 /** @noinspection SpellCheckingInspection */
 
@@ -72,7 +73,7 @@ class StatusRequestTest extends TestCase
             $this->mcnt_ShopId,
             $this->secretkey,
             $this->mcnt_TxnNo,
-            $this->mcnt_Amount,
+            (float)$this->mcnt_Amount,
             $this->mcnt_Currency,
             $this->cust_InvoiceTo,
             $this->cust_CustomerServiceName,
@@ -99,13 +100,15 @@ class StatusRequestTest extends TestCase
         $statusRequestResponse = $statusRequest->send();
         self::assertNotEmpty($statusRequestResponse);
 
-        self::assertArrayHasKey('Status', $statusRequestResponse[0]);
-        self::assertArrayHasKey('MerchantTxnNo', $statusRequestResponse[0]);
-        self::assertArrayHasKey('message', $statusRequestResponse[0]);
+        $response_data = (array)$statusRequestResponse[0];
 
-        self::assertNotEmpty($statusRequestResponse[0]['Status']);
-        self::assertNotEmpty($statusRequestResponse[0]['MerchantTxnNo']);
-        self::assertNotEmpty($statusRequestResponse[0]['message']);
+        self::assertArrayHasKey('Status', $response_data);
+        self::assertArrayHasKey('MerchantTxnNo', $response_data);
+        self::assertArrayHasKey('message', $response_data);
+
+        self::assertNotEmpty($response_data['Status']);
+        self::assertNotEmpty($response_data['MerchantTxnNo']);
+        self::assertNotEmpty($response_data['message']);
     }
 
     /**
@@ -119,12 +122,14 @@ class StatusRequestTest extends TestCase
         $statusRequestResponse = $statusRequest->send();
         self::assertNotEmpty($statusRequestResponse);
 
-        self::assertArrayHasKey('Status', $statusRequestResponse[0]);
-        self::assertArrayHasKey('MerchantTxnNo', $statusRequestResponse[0]);
-        self::assertArrayHasKey('message', $statusRequestResponse[0]);
+        $response_data = (array)$statusRequestResponse[0];
 
-        self::assertTrue($statusRequestResponse[0]['Status'] >= 400);
-        self::assertEmpty($statusRequestResponse[0]['fosterid']);
-        self::assertEmpty($statusRequestResponse[0]['TxnResponse']);
+        self::assertArrayHasKey('Status', $response_data);
+        self::assertArrayHasKey('MerchantTxnNo', $response_data);
+        self::assertArrayHasKey('message', $response_data);
+
+        self::assertTrue($response_data['Status'] >= 400);
+        self::assertEmpty($response_data['fosterid']);
+        self::assertEmpty($response_data['TxnResponse']);
     }
 }
