@@ -2,6 +2,7 @@
 
 
 namespace Dotlines\Foster\Interfaces;
+
 use Dotlines\Foster\Models\Webhook;
 use Dotlines\Foster\Models\WebhookResponse;
 
@@ -17,5 +18,4 @@ use Dotlines\Foster\Models\WebhookResponse;
 interface IWebhookProcessor
 {
     public function process(Webhook $notification, array $others = []): WebhookResponse;
-
 }

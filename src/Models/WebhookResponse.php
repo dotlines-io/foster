@@ -2,6 +2,7 @@
 
 
 namespace Dotlines\Foster\Models;
+
 /**
  * After Foster pushes a webhook to your Webhook Receiving endpoint
  * And after you've done necessary processing for the webhook
@@ -25,5 +26,4 @@ class WebhookResponse
     {
         return $this->message;
     }
-
 }

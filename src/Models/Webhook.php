@@ -2,6 +2,7 @@
 
 
 namespace Dotlines\Foster\Models;
+
 /**
  * You will provide an API endpoint to Foster
  * After that Foster will start pushing notifications to this API endpoint
@@ -37,5 +38,4 @@ class Webhook
         $this->fosterId = $fosterId;
         $this->hashkey = strtolower($hashkey);
     }
-
 }
