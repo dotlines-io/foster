@@ -34,13 +34,13 @@ class ChargeRequest extends Request
     private string $merchentdomainname;
     private string $merchentip;
     /**
-     * @var string|null
+     * @var string|string|null
      */
-    private string $gateway;
+    private ?string $gateway;
     /**
-     * @var string|null
+     * @var string|string|null 
      */
-    private string $card_type;
+    private ?string $card_type;
 
     /**
      * @param string $charge_request_url
