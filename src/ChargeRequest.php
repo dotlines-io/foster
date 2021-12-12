@@ -33,13 +33,7 @@ class ChargeRequest extends Request
     private string $fail_url;
     private string $merchentdomainname;
     private string $merchentip;
-    /**
-     * @var string|null
-     */
     private string $gateway;
-    /**
-     * @var string|null
-     */
     private string $card_type;
 
     /**
@@ -69,8 +63,8 @@ class ChargeRequest extends Request
      * @param string $fail_url
      * @param string $merchentdomainname
      * @param string $merchentip
-     * @param string|null $gateway
-     * @param string|null $card_type
+     * @param string $gateway
+     * @param string $card_type
      * @return ChargeRequest
      */
     public static function getInstance(
@@ -100,8 +94,8 @@ class ChargeRequest extends Request
         string $fail_url,
         string $merchentdomainname,
         string $merchentip,
-        ?string $gateway = null,
-        ?string $card_type = null
+        string $gateway,
+        string $card_type
     ): ChargeRequest {
         return new ChargeRequest(
             $charge_request_url,
@@ -162,8 +156,8 @@ class ChargeRequest extends Request
         string $fail_url,
         string $merchentdomainname,
         string $merchentip,
-        ?string $gateway,
-        ?string $card_type
+        string $gateway,
+        string $card_type
     ) {
         $this->requestMethod = 'POST';
         $this->url = $charge_request_url;
@@ -192,8 +186,8 @@ class ChargeRequest extends Request
         $this->fail_url = $fail_url;
         $this->merchentdomainname = $merchentdomainname;
         $this->merchentip = $merchentip;
-        $this->gateway = $gateway ?? '';
-        $this->card_type = $card_type ?? '';
+        $this->gateway = $gateway;
+        $this->card_type = $card_type;
     }
 
     final public function params(): array
