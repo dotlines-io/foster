@@ -195,8 +195,8 @@ class ChargeRequest extends Request
         $this->fail_url = $fail_url;
         $this->merchentdomainname = $merchentdomainname;
         $this->merchentip = $merchentip;
-        $this->gateway = $gateway;
-        $this->card_type = $card_type;
+        $this->gateway = $gateway ?? '';
+        $this->card_type = $card_type ?? '';
     }
 
     final public function params(): array
