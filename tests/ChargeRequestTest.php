@@ -43,6 +43,8 @@ class ChargeRequestTest extends TestCase
     public string $fail_url = 'http://localhost/test.php';
     public string $merchentdomainname = 'carnivalassure.com.bd';
     public string $merchentip = 'carnivalassure.com.bd';
+    public string $gateway = '';
+    public string $card_type = '';
 
     final public function setUp(): void
     {
@@ -89,7 +91,9 @@ class ChargeRequestTest extends TestCase
             $this->cancel_url,
             $this->fail_url,
             $this->merchentdomainname,
-            $this->merchentip
+            $this->merchentip,
+            $this->gateway,
+            $this->card_type
         );
         $response = $chargeRequest->send();
 
@@ -142,7 +146,9 @@ class ChargeRequestTest extends TestCase
             $this->cancel_url,
             $this->fail_url,
             $this->merchentdomainname,
-            $this->merchentip
+            $this->merchentip,
+            $this->gateway,
+            $this->card_type
         );
         $response = $chargeRequest->send();
 
