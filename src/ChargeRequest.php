@@ -33,7 +33,6 @@ class ChargeRequest extends Request
     private string $fail_url;
     private string $merchentdomainname;
     private string $merchentip;
-
     private string $gateway;
     private string $card_type;
 
