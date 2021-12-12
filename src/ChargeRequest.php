@@ -130,8 +130,8 @@ class ChargeRequest extends Request
             $fail_url,
             $merchentdomainname,
             $merchentip,
-            $gateway,
-            $card_type
+            $gateway ?? '',
+            $card_type ?? ''
         );
     }
 
