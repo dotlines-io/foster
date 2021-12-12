@@ -57,12 +57,15 @@ $cancel_url = '';               // Mandatory | Customer redirection URL after pa
 $fail_url = '';                 // Mandatory | Customer redirection URL after payment failure
 $merchentdomainname = '';       // Mandatory | Domain Name
 $merchentip = '';               // Mandatory | Domain IP
+$merchentip = '';               // Mandatory | Domain IP
+$gateway = '';                  // Optional  | Gateway name
+$card_type = '';                // Optional  | Card Type
 
 
 $chargeRequest = \Dotlines\Foster\ChargeRequest::getInstance($charge_request_url, $mcnt_AccessCode, $mcnt_ShortName, $mcnt_ShopId, $secretkey,
     $mcnt_TxnNo, $mcnt_Amount, $mcnt_Currency, $cust_InvoiceTo, $cust_CustomerServiceName, $cust_CustomerName, $cust_CustomerEmail, $cust_CustomerAddress,
     $cust_CustomerContact, $cust_CustomerCity, $cust_CustomerState, $cust_CustomerPostcode, $cust_CustomerCountry, $cust_Billingaddress, $cust_ShippingAddress,
-    $cust_orderitems, $success_url, $cancel_url, $fail_url, $merchentdomainname, $merchentip);
+    $cust_orderitems, $success_url, $cancel_url, $fail_url, $merchentdomainname, $merchentip, $gateway, $card_type);
 echo json_encode($chargeRequest->send()) . '<br/>';
 
 /**

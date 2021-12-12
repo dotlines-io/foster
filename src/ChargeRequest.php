@@ -33,6 +33,8 @@ class ChargeRequest extends Request
     private string $fail_url;
     private string $merchentdomainname;
     private string $merchentip;
+    private string $gateway;
+    private string $card_type;
 
     /**
      * @param string $charge_request_url
@@ -61,6 +63,8 @@ class ChargeRequest extends Request
      * @param string $fail_url
      * @param string $merchentdomainname
      * @param string $merchentip
+     * @param string $gateway
+     * @param string $card_type
      * @return ChargeRequest
      */
     public static function getInstance(
@@ -87,10 +91,14 @@ class ChargeRequest extends Request
         string $cust_orderitems,
         string $success_url,
         string $cancel_url,
-        string  $fail_url,
+        string $fail_url,
         string $merchentdomainname,
-        string $merchentip
-    ): ChargeRequest {
+        string $merchentip,
+        string $gateway = null,
+        string $card_type = null
+
+    ): ChargeRequest
+    {
         return new ChargeRequest(
             $charge_request_url,
             $mcnt_AccessCode,
@@ -117,7 +125,9 @@ class ChargeRequest extends Request
             $cancel_url,
             $fail_url,
             $merchentdomainname,
-            $merchentip
+            $merchentip,
+            $gateway,
+            $card_type
         );
     }
 
@@ -145,10 +155,13 @@ class ChargeRequest extends Request
         string $cust_orderitems,
         string $success_url,
         string $cancel_url,
-        string  $fail_url,
+        string $fail_url,
         string $merchentdomainname,
-        string $merchentip
-    ) {
+        string $merchentip,
+        string $gateway,
+        string $card_type
+    )
+    {
         $this->requestMethod = 'POST';
         $this->url = $charge_request_url;
         $this->mcnt_AccessCode = $mcnt_AccessCode;
@@ -176,11 +189,13 @@ class ChargeRequest extends Request
         $this->fail_url = $fail_url;
         $this->merchentdomainname = $merchentdomainname;
         $this->merchentip = $merchentip;
+        $this->gateway = $gateway;
+        $this->card_type = $card_type;
     }
 
     final public function params(): array
     {
-        return [
+        $request_params = [
             'mcnt_ShortName' => $this->mcnt_ShortName,
             'mcnt_ShopId' => $this->mcnt_ShopId,
             'mcnt_TxnNo' => $this->mcnt_TxnNo,
@@ -207,6 +222,14 @@ class ChargeRequest extends Request
             'merchentip' => $this->merchentip,
             'mcnt_SecureHashValue' => $this->makeMerchantHash(),
         ];
+        if(!empty($this->gateway)){
+            $request_params['GW'] = $this->gateway;
+        }
+        if(!empty($this->card_type)){
+            $request_params['CardType'] = $this->card_type;
+        }
+
+        return $request_params;
     }
 
     private function makeMerchantHash(): string
