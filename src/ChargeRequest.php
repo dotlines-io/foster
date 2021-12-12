@@ -38,7 +38,7 @@ class ChargeRequest extends Request
      */
     private ?string $gateway;
     /**
-     * @var string|string|null 
+     * @var string|string|null
      */
     private ?string $card_type;
 
