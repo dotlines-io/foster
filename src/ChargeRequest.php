@@ -98,9 +98,7 @@ class ChargeRequest extends Request
         string $merchentip,
         string $gateway = null,
         string $card_type = null
-
-    ): ChargeRequest
-    {
+    ): ChargeRequest {
         return new ChargeRequest(
             $charge_request_url,
             $mcnt_AccessCode,
@@ -162,8 +160,7 @@ class ChargeRequest extends Request
         string $merchentip,
         string $gateway,
         string $card_type
-    )
-    {
+    ) {
         $this->requestMethod = 'POST';
         $this->url = $charge_request_url;
         $this->mcnt_AccessCode = $mcnt_AccessCode;
@@ -224,10 +221,10 @@ class ChargeRequest extends Request
             'merchentip' => $this->merchentip,
             'mcnt_SecureHashValue' => $this->makeMerchantHash(),
         ];
-        if(!empty($this->gateway)){
+        if (! empty($this->gateway)) {
             $request_params['GW'] = $this->gateway;
         }
-        if(!empty($this->card_type)){
+        if (! empty($this->card_type)) {
             $request_params['CardType'] = $this->card_type;
         }
 
