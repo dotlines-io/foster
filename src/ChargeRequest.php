@@ -69,8 +69,8 @@ class ChargeRequest extends Request
      * @param string $fail_url
      * @param string $merchentdomainname
      * @param string $merchentip
-     * @param string $gateway
-     * @param string $card_type
+     * @param string|null $gateway
+     * @param string|null $card_type
      * @return ChargeRequest
      */
     public static function getInstance(
@@ -100,8 +100,8 @@ class ChargeRequest extends Request
         string $fail_url,
         string $merchentdomainname,
         string $merchentip,
-        string $gateway = NULL,
-        string $card_type = NULL
+        ?string $gateway = NULL,
+        ?string $card_type = NULL
 
     ): ChargeRequest
     {
@@ -164,8 +164,8 @@ class ChargeRequest extends Request
         string $fail_url,
         string $merchentdomainname,
         string $merchentip,
-        string $gateway,
-        string $card_type
+        ?string $gateway,
+        ?string $card_type
     )
     {
         $this->requestMethod = 'POST';
