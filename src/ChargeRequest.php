@@ -64,7 +64,9 @@ class ChargeRequest extends Request
      * @param string $merchentdomainname
      * @param string $merchentip
      * @param string $gateway
+     * @psalm-return ($gateway is null ? (string|null) : string)
      * @param string $card_type
+     * @psalm-return ($card_type is null ? (string|null) : string)
      * @return ChargeRequest
      */
     public static function getInstance(
