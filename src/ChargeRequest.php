@@ -100,8 +100,8 @@ class ChargeRequest extends Request
         string $fail_url,
         string $merchentdomainname,
         string $merchentip,
-        ?string $gateway = NULL,
-        ?string $card_type = NULL
+        ?string $gateway = null,
+        ?string $card_type = null
     ): ChargeRequest {
         return new ChargeRequest(
             $charge_request_url,
